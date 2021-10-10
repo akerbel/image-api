@@ -9,8 +9,17 @@ A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony
 1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/)
 2. Run `docker-compose build --pull --no-cache` to build fresh images
 3. Run `docker-compose up` (the logs will be displayed in the current shell)
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker-compose down --remove-orphans` to stop the Docker containers.
+4. Enter docker container `docker exec -it image-api_php_1 sh`
+5. Run `php bin/console doctrine:schema:create`
+6. Run `php bin/console doctrine:fixtures:load`
+
+## Preparing autotests
+1. Run `php bin/console --env=test doctrine:database:create`
+2. Run `php bin/console --env=test doctrine:schema:create`
+3. Run `php bin/console --env=test doctrine:fixtures:load`
+
+## Runing autotests
+1. Run `php ./bin/phpunit ./tests/`
 
 ## Features
 
