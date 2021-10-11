@@ -21,6 +21,40 @@ A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony
 ## Runing autotests
 1. Run `php ./bin/phpunit ./tests/`
 
+## API Methods
+
+---
+
+#### Login `GET /login`
+
+params:
+* `username` - string
+* `password` - string
+
+response:
+* `token` - string
+---
+#### Post Image `POST /image`
+
+headers:
+* `X-AUTH-TOKEN` - string. Token from "login" response.
+
+params:
+* `image` - string. Base64 encoded image content.
+
+response:
+* `url` - string. Full URL to uploaded image, including `{imageId}`.
+---
+#### Get Image `GET /image/{imageId}`
+
+headers:
+* `X-AUTH-TOKEN` - string. Token from "login" response.
+
+response:
+* Binary content of the image.
+
+---
+
 ## Features
 
 * Production, development and CI ready
