@@ -10,8 +10,7 @@ A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony
 2. Run `docker-compose build --pull --no-cache` to build fresh images
 3. Run `docker-compose up` (the logs will be displayed in the current shell)
 4. Enter docker container `docker exec -it image-api_php_1 sh`
-5. Run `php bin/console doctrine:schema:create`
-6. Run `php bin/console doctrine:fixtures:load`
+5. Run `php bin/console doctrine:fixtures:load` to create test user with username "user" and password "password".
 
 ## Preparing autotests
 1. Run `php bin/console --env=test doctrine:database:create`
